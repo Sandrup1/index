@@ -28,6 +28,7 @@
       padding: 1rem 2rem;
       background-color: var(--bg);
       border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
     }
     nav a {
       color: var(--text);
@@ -47,6 +48,7 @@
       max-width: 1200px;
       margin: auto;
       flex-wrap: wrap;
+      gap: 2rem;
     }
     .hero-text {
       max-width: 600px;
@@ -125,9 +127,21 @@
     }
 
     @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
       .hero {
         flex-direction: column;
         text-align: center;
+      }
+      .hero img {
+        width: 80%;
+        height: auto;
+      }
+      .hero-buttons button {
+        margin-bottom: 1rem;
+        width: 100%;
       }
     }
   </style>
@@ -153,7 +167,7 @@
         <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Let's Talk</button>
       </div>
     </div>
-    <img src="https://via.placeholder.com/300x300" alt="Hero Image" style="border-radius: 50%; margin-top: 2rem; max-width: 100%;" />
+    <img src="https://via.placeholder.com/300x300" alt="Hero Image" style="border-radius: 50%; margin-top: 2rem; max-width: 100%; height: auto;" />
   </section>
 
   <section class="skills" id="about">
