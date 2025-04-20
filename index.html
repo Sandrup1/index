@@ -3,19 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Sandrup | Frontend Developer</title>
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #1a1a1a;
-      --accent: #007acc;
-      --border: #ddd;
-    }
-    [data-theme="dark"] {
-      --bg: #121212;
-      --text: #f1f1f1;
-      --accent: #66ccff;
-      --border: #444;
+      --bg: #0f172a;
+      --text: #f8fafc;
+      --accent: #3b82f6;
+      --light-accent: #60a5fa;
+      --border: #1e293b;
     }
 
     body {
@@ -23,117 +18,145 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      padding: 0 20px;
-      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    header, section, footer {
-      max-width: 960px;
-      margin: auto;
-      padding: 2rem 0;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--bg);
+      border-bottom: 1px solid var(--border);
     }
-
-    h1, h2 {
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+    }
+    nav a:hover {
       color: var(--accent);
     }
 
-    .skills ul {
-      list-style-type: square;
-      padding-left: 1.5rem;
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+    .hero-text {
+      max-width: 600px;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: var(--text);
+    }
+    .hero p {
+      color: var(--light-accent);
+      margin: 0.5rem 0 1.5rem;
+    }
+    .hero-buttons button {
+      padding: 0.8rem 1.5rem;
+      margin-right: 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background-color: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .hero-buttons button:hover {
+      background-color: var(--accent);
+      color: #fff;
     }
 
-    .skills, .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+    .skills, .projects, .contact {
+      max-width: 960px;
+      margin: auto;
+      padding: 2rem;
     }
 
     .project {
-      border: 1px solid var(--border);
+      background-color: #1e293b;
       border-radius: 8px;
       padding: 1rem;
-      transition: box-shadow 0.3s;
+      margin-bottom: 1rem;
     }
-
-    .project:hover {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .project a {
+    .project h3 {
+      margin: 0;
       color: var(--accent);
-      text-decoration: none;
+    }
+    .project p, .project a {
+      color: #cbd5e1;
     }
 
     .contact input, .contact textarea {
-      display: block;
       width: 100%;
-      padding: 0.75rem;
+      padding: 0.8rem;
       margin-bottom: 1rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background: transparent;
+      border-radius: 6px;
+      border: none;
+      background-color: #334155;
       color: var(--text);
     }
 
-    button {
-      padding: 0.7rem 1.5rem;
+    .contact button {
       background-color: var(--accent);
-      color: white;
+      color: #fff;
       border: none;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: darken(var(--accent), 10%);
-      filter: brightness(1.1);
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      padding: 0.5rem 1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
       cursor: pointer;
     }
-
-    .hidden {
-      display: none;
+    .contact button:hover {
+      background-color: #2563eb;
     }
 
     footer {
       text-align: center;
-      font-size: 0.9rem;
+      padding: 1rem;
+      background-color: #0f172a;
       border-top: 1px solid var(--border);
-      padding-top: 1rem;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 768px) {
-      .project {
-        width: 100%;
+      .hero {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
 </head>
-<body data-theme="light">
-  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-  <header>
-    <h1 id="name"></h1>
-    <p>Frontend Developer</p>
-  </header>
+<body>
+  <nav>
+    <div style="font-size: 1.2rem; font-weight: bold; color: white;">Sandrup.</div>
+    <div>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>Hi! I'm a passionate web developer who loves building responsive and interactive websites.</p>
-    <button onclick="toggleMoreInfo()">Read More</button>
-    <p id="more-info" class="hidden">I enjoy learning new technologies and creating meaningful digital experiences. I'm currently exploring more advanced JavaScript frameworks and working on personal projects to sharpen my skills.</p>
+  <section class="hero">
+    <div class="hero-text">
+      <h1 id="name"></h1>
+      <p>Frontend Developer</p>
+      <p>Building responsive and dynamic websites with a passion for clean code and elegant design.</p>
+      <div class="hero-buttons">
+        <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Hire Me</button>
+        <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Let's Talk</button>
+      </div>
+    </div>
+    <img src="https://via.placeholder.com/300x300" alt="Hero Image" style="border-radius: 50%; margin-top: 2rem; max-width: 100%;" />
   </section>
 
-  <section class="skills">
+  <section class="skills" id="about">
     <h2>Skills</h2>
     <ul>
       <li>HTML</li>
@@ -143,12 +166,12 @@
     </ul>
   </section>
 
-  <section class="projects">
+  <section class="projects" id="projects">
     <h2>Projects</h2>
     <div id="project-container"></div>
   </section>
 
-  <section class="contact">
+  <section class="contact" id="contact">
     <h2>Contact Me</h2>
     <form onsubmit="return validateForm()">
       <input type="text" id="username" placeholder="Name" required />
@@ -163,8 +186,7 @@
   </footer>
 
   <script>
-    // Typing animation
-    const nameText = "Hello, I'm Sandrup";
+    const nameText = "Hi, I'm Sandrup";
     let i = 0;
     function typeEffect() {
       if (i < nameText.length) {
@@ -175,26 +197,8 @@
     }
     typeEffect();
 
-    // Dynamic date
     document.getElementById("datetime").innerText = new Date().toLocaleString();
 
-    // Theme toggle
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      document.documentElement.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
-    }
-
-    // Project loader
-    const projects = [
-      { title: "Portfolio Website", desc: "A personal website built using HTML, CSS, and JS", link: "#" },
-      { title: "To-Do App", desc: "A simple to-do list application", link: "#" },
-    ];
-    const projectContainer = document.getElementById("project-container");
-    projects.forEach(p => {
-      projectContainer.innerHTML += `<div class='project'><h3>${p.title}</h3><p>${p.desc}</p><a href='${p.link}' target='_blank'>View</a></div>`;
-    });
-
-    // Form validation
     function validateForm() {
       const name = document.getElementById("username").value;
       const email = document.getElementById("email").value;
@@ -206,11 +210,14 @@
       return true;
     }
 
-    // Show/hide content
-    function toggleMoreInfo() {
-      const moreInfo = document.getElementById("more-info");
-      moreInfo.classList.toggle("hidden");
-    }
+    const projects = [
+      { title: "Portfolio Website", desc: "A personal website built using HTML, CSS, and JS", link: "#" },
+      { title: "To-Do App", desc: "A simple to-do list application", link: "#" },
+    ];
+    const projectContainer = document.getElementById("project-container");
+    projects.forEach(p => {
+      projectContainer.innerHTML += `<div class='project'><h3>${p.title}</h3><p>${p.desc}</p><a href='${p.link}' target='_blank'>View</a></div>`;
+    });
   </script>
 </body>
 </html>
